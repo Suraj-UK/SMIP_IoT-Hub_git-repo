@@ -10,7 +10,7 @@ AUX_CONNECTION_STRING = sys.argv[1]
 
 AUX_BASE_HEART_RATE = 65
 AUX_BASE_BODY_TEMPERATURE = 37.0
-AUX_MAXIMUM_BODY_TEMPERATURE = 39.0
+AUX_MAXIMUM_BODY_TEMPERATURE = 40.0
 
 #SENSOR DATA WILL HOST SENSOR METRICS
 sensor_data = {}
@@ -49,15 +49,15 @@ def iothub_client_telemetry_sample_run():
         while True:
         #COLLECTING SENSOR VALUES
 		#NEW METRIC COLLECTION SHOULD ADD CODE HERE
-            temperature_measure = get_sensor_temperature()
+			temperature_measure = get_sensor_temperature()
             heart_rate_measure  = get_sensor_heart_rate()
-			blood_sugar_measure = get_blood_sugar_rate()
+            blood_sugar_measure = get_blood_sugar_rate()
 		
 		#STORING SENSOR VALUES IN DATA STRUCTURE
 		#NEW METRIC COLLECTION SHOULD ADD CODE HERE
-            sensor_data['Elec_Consumption_KWh'] = temperature_measure
+			sensor_data['Elec_Consumption_KWh'] = temperature_measure
             sensor_data['Gas_Consumption_KWh'] = heart_rate_measure
-			sensor_data['Connection_Strength'] = blood_sugar_measure
+            sensor_data['Connection_Strength'] = blood_sugar_measure
 
 		#TRANFORMING IT TO JSON			
             json_sensor_data = json.dumps(sensor_data)
